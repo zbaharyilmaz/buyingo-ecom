@@ -22,12 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${merienda.variable} antialiased`}
-      >
-        <Navbar/>
-        {children}
-        <Footer/>
+      <body className={`${merienda.variable} antialiased`}>
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-grow bg-purple-100">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
