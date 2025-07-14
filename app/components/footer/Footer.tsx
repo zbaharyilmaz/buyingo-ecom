@@ -1,7 +1,7 @@
 "use client";
 const Footer     = () => {
   return (
-    <div>
+    <div className="flex items-center justify-center h-10 bg-brand-bg text-brand-textlogo">
         Footer
     </div>
   );

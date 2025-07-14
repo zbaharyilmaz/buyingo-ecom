@@ -8,9 +8,9 @@ import HamburgerMenu from "./HamburgerMenu";
 
 const Navbar = () => {
   return (
-    <div className="flex gap-3 items-center justify-between md:gap-10 px-3 md:px-10 h-16 bg-[#5C3CBB] text-purple-100">
+    <div className="flex gap-3 items-center justify-between md:gap-10 px-3 md:px-10 h-16 bg-brand-bg text-brand-text">
       <Logo />
-      <Search/>
+      <Search />
       <CardCount />
       <User />
       <HamburgerMenu />

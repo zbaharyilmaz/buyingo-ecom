@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
-body {
-  font-family: var(--font-merienda);
+@theme {
+  /* --font-merienda: 'Merienda', cursive; */
+  --color-brand-primary: #4a90e2;
+  --color-brand-logo: #f5a623;
+  --color-brand-text: #f9fafb;
+  --color-brand-bg: #1f2937;
+  --color-brand-textlogo: #4b5563;
 }
