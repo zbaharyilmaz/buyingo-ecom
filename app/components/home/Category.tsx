@@ -12,9 +12,9 @@ const Category = () => {
       {categoryList.map((category, index) => (
         <div
           className="border rounded-full min-w-[120px] text-center flex items-center justify-center cursor-pointer text-brand-textlogo px-4 py-2"
-          key={index}>
-       {category.name} 
-    
+          key={index}
+        >
+          {category.name}
         </div>
       ))}
     </div>
