@@ -1,5 +1,5 @@
 
-import DetailClient from "../../detail/DetailClient";
+import DetailClient from "../../components/detail/DetailClient";
 import { products } from "@/utils/Products";
 
 type DetailProps={
