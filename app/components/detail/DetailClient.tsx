@@ -5,7 +5,8 @@ import Counter from "../general/Counter";
 import { useState } from "react";
 import { Rating } from "@mui/material";
 import Button from "../general/Button";
-import Comment from "./Comments";
+import Comment from "./Comment";
+import Heading from "../general/Heading";
 
 export type CardProductProps = {
   id: string;
@@ -73,6 +74,7 @@ const DetailClient = ({ product }: { product: any }) => {
             <Button text="Add to Cart" small onClick={()=>{}}/>
           </div>
         </div>
+        <Heading text="Comments"/>
         <div>
           {
             product?.reviews?.map((prd:any)=>(<Comment key={prd.id} prd={prd}/>))
