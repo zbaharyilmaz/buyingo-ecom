@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
       className={`rounded-lg p-3 ${small ? "w-[250px]" : "w-full"} ${
         outline ? "border text-brand-bg" : "bg-brand-bg text-white"
       }`}
-      onClick={() => {}}
+      onClick={onClick}
     >
       {" "}
       {Icon && <Icon />}

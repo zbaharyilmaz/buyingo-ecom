@@ -4,7 +4,7 @@ import { RxAvatar } from "react-icons/rx";
 //import Avatar from "../general/Avatar"
 
 const Comment = ({prd}:{prd:any}) => {
-  console.log(prd);
+  //console.log(prd);
     
   return (
     <div className=" w-full border border-gray-300 md:w-1/2 p-2 rounded-lg my-3">

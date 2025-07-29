@@ -1,12 +1,14 @@
 "use client";
+
 import Image from "next/image";
 import PageContainer from "../containers/PageContainer";
 import Counter from "../general/Counter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Rating } from "@mui/material";
 import Button from "../general/Button";
 import Comment from "./Comment";
 import Heading from "../general/Heading";
+import UseCart from "@/hooks/UseCart";
 
 export type CardProductProps = {
   id: string;
@@ -19,6 +21,8 @@ export type CardProductProps = {
 };
 
 const DetailClient = ({ product }: { product: any }) => {
+  const { productCartQty, addToBasket, cartPrdcts } = UseCart();
+  const [displayButton, setDisplayButton] = useState(false);
   const [cardProduct, setCardProduct] = useState<CardProductProps>({
     id: product.id,
     name: product.name,
@@ -28,6 +32,16 @@ const DetailClient = ({ product }: { product: any }) => {
     image: product.image,
     stock: product.inStock,
   });
+  console.log(cartPrdcts);
+  useEffect(() => {
+    setDisplayButton(false);
+    let controlDisplay: any = cartPrdcts?.findIndex(
+      (cart) => cart.id == product.id
+    );
+    if (controlDisplay > -1) {
+      setDisplayButton(true);
+    }
+  }, [cartPrdcts]);
   const increaseFunct = () => {
     if (cardProduct.quantity == 10) return; //erken çıkış
     setCardProduct((prev) => ({ ...prev, quantity: prev.quantity + 1 }));
@@ -63,22 +77,42 @@ const DetailClient = ({ product }: { product: any }) => {
                 <div className="text-red-700">Out of Stock</div>
               )}
             </div>
-            <Counter
-              increaseFunct={increaseFunct}
-              decreaseFunct={decreaseFunct}
-              cardProduct={cardProduct}
-            />
+            {displayButton ? (
+              <>
+                <Button
+                  text="Product in Cart"
+                  small
+                  outline
+                  onClick={() => {
+                    addToBasket(cardProduct);
+                  }}
+                />
+              </>
+            ) : (
+              <>
+                <Counter
+                  increaseFunct={increaseFunct}
+                  decreaseFunct={decreaseFunct}
+                  cardProduct={cardProduct}
+                />
+                <Button
+                  text="Add to Cart"
+                  small
+                  onClick={() => addToBasket(cardProduct)}
+                />
+              </>
+            )}
+
             <div className="text-lg md:text-2xl text-brand-logo font-bold ">
               {product.price} $
             </div>
-            <Button text="Add to Cart" small onClick={()=>{}}/>
           </div>
         </div>
-        <Heading text="Comments"/>
+        <Heading text="Comments" />
         <div>
-          {
-            product?.reviews?.map((prd:any)=>(<Comment key={prd.id} prd={prd}/>))
-          }
+          {product?.reviews?.map((prd: any) => (
+            <Comment key={prd.id} prd={prd} />
+          ))}
         </div>
       </PageContainer>
     </div>
