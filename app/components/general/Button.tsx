@@ -19,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       disabled={disabled}
-      className={`rounded-lg p-3 ${small ? "w-[250px]" : "w-full"} ${
+      className={`flex items-center justify-center gap-2 rounded-lg p-3 my-2 ${small ? "w-[250px]" : "w-full"} ${
         outline ? "border text-brand-bg" : "bg-brand-bg text-white"
       }`}
       onClick={onClick}
