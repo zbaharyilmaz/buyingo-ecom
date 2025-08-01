@@ -1,9 +1,11 @@
+import { getCurrentUser } from "../actions/getCurrentUser";
 import LoginClient from "../components/auth/LoginClient";
 
-const Login = () => {
+const Login = async() => {
+  const currentUser= await getCurrentUser()
   return (
     <div>
-        <LoginClient/>
+        <LoginClient currentUser={currentUser} />
     </div>
   );
 };
